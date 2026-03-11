@@ -1,10 +1,10 @@
 package domain;
 
-import enums.Rank;
-import enums.Suit;
+import domain.enums.Rank;
+import domain.enums.Suit;
 
 public record Card(
-        Rank rank,
-        Suit suit
+        Suit suit,
+        Rank rank
 ) {
 }
