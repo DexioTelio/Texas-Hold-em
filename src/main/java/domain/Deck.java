@@ -16,7 +16,7 @@ public class Deck {
   private void createDeck() {
     for (Suit suit : Suit.values()) {
       for (Rank rank : Rank.values()) {
-        cards.add(new Card(suit, rank));
+        cards.add(new Card(suit.getSymbol(), rank.getSymbol()));
       }
     }
   }

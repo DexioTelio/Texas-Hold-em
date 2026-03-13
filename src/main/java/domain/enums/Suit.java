@@ -11,4 +11,8 @@ public enum Suit {
   Suit(char symbol) {
     this.symbol = symbol;
   }
+
+  public char getSymbol() {
+    return symbol;
+  }
 }

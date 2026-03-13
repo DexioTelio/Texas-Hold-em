@@ -1,10 +1,13 @@
 package domain;
 
 import domain.enums.Rank;
-import domain.enums.Suit;
 
 public record Card(
-        Suit suit,
-        Rank rank
+        char suit,
+        String rank
 ) {
+  @Override
+  public String toString() {
+    return "%s%s".formatted(rank, suit);
+  }
 }
