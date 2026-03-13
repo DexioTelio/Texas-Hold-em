@@ -1,7 +1,5 @@
 package domain;
 
-import domain.enums.Rank;
-
 public record Card(
         char suit,
         String rank
