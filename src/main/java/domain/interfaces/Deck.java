@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface Deck {
   List<Card> draw(TableType tableType);
-  void shuffle();
+  void shuffle(List<Card> cards, int repeat);
   int remainingCards();
 }

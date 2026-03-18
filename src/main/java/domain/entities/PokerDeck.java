@@ -26,17 +26,6 @@ public class PokerDeck implements Deck {
     }
   }
 
-  public void shuffle(List<Card> cards, int repeat) {
-    for (int i = 0; i < repeat; i++) {
-      int min = random.nextInt(cards.size()/2 + 1);
-      int max = random.nextInt(cards.size()/2 + 10, cards.size());
-      List<Card> sub = new ArrayList<>(cards.subList(min, max));
-      cards.removeAll(sub);
-      int startIndex = random.nextInt(cards.size());
-      cards.addAll(startIndex, sub);
-    }
-  }
-
   public int size() {
     return cards.size();
   }
@@ -51,8 +40,15 @@ public class PokerDeck implements Deck {
   }
 
   @Override
-  public void shuffle() {
-
+  public void shuffle(List<Card> cards, int repeat) {
+    for (int i = 0; i < repeat; i++) {
+      int min = random.nextInt(cards.size()/2 + 1);
+      int max = random.nextInt(cards.size()/2 + 10, cards.size());
+      List<Card> sub = new ArrayList<>(cards.subList(min, max));
+      cards.removeAll(sub);
+      int startIndex = random.nextInt(cards.size());
+      cards.addAll(startIndex, sub);
+    }
   }
 
   @Override
