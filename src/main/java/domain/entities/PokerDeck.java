@@ -1,19 +1,21 @@
-package domain;
+package domain.entities;
 
 import domain.enums.Rank;
 import domain.enums.Suit;
+import domain.enums.TableType;
+import domain.interfaces.Deck;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Deck {
+public class PokerDeck implements Deck {
   private final List<Card> cards = new ArrayList<>(52);
   private final static Random random = new Random();
 
-  public Deck() {
+  public PokerDeck() {
     createDeck();
-    shuffle(cards, random.nextInt(5, 8));
+    shuffle(cards, 14);
   }
 
   private void createDeck() {
@@ -37,5 +39,24 @@ public class Deck {
 
   public int size() {
     return cards.size();
+  }
+
+  @Override
+  public List<Card> draw(TableType tableType) {
+    int totalCards = (tableType.getTableType() * 2) + 5;
+    int size = size();
+    List<Card> cardsToDealt = cards.subList(size - totalCards, size);
+    cards.removeAll(cardsToDealt);
+    return cardsToDealt;
+  }
+
+  @Override
+  public void shuffle() {
+
+  }
+
+  @Override
+  public int remainingCards() {
+    return 0;
   }
 }
